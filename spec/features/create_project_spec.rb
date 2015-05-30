@@ -21,6 +21,8 @@ describe "Creating a new project" do
     expect(current_path).to eq(project_path(Project.last))
 
     expect(page).to have_text('New Project Name')
+
+    expect(page).to have_text('Project successfully updated!')
   end
 
   it "does not save the project if it's invalid" do
@@ -31,5 +33,7 @@ describe "Creating a new project" do
     }.not_to change(Project, :count)
 
     expect(page).to have_text('error')
+
+    expect(page).to have_text('Movie successfully created!')
   end
 end
